@@ -1,4 +1,4 @@
-from linkServer.real_time_station_data import *
+from scrapData.real_time_station_data import *
 import requests
 import json
 import time
@@ -21,10 +21,10 @@ def main():
                 store(json.loads(r.text))
             # duplicate data insert error
             except pymysql.err.IntegrityError:
-                print("Try to insert duplicate data, sleep....")
+                print("Error: Try to insert duplicate data, wait for next run....")
                 time.sleep(5*60)
             except:
-                print("Other insert error, sleep....")
+                print("Error: Other insert error, wait for next run....")
                 time.sleep(5*60)
             else:
                 # now sleep for 5 minutes
@@ -36,4 +36,6 @@ def main():
             print(traceback.format_exc())
     return
 
-main()
+
+if __name__ == '__main__':
+    main()

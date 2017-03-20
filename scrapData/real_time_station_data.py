@@ -1,5 +1,5 @@
-from linkServer.rds_config import *
-from linkServer.link_to_mysql import *
+from scrapData.rds_config import *
+from scrapData.link_to_mysql import *
 
 import pymysql
 import json
@@ -36,7 +36,7 @@ def store(request_data):
     conn.close()
     
     # store data  to local machine
-    pickle_name = 'station_real_time_' + runtime + '.pkl'
+    pickle_name = '../backup/station_real_time_' + runtime + '.pkl'
     pickle_json = open(pickle_name, 'wb')
     pickle.dump(request_data, pickle_json)
     pickle_json.close()

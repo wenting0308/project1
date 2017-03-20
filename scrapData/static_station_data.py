@@ -1,5 +1,5 @@
-from linkServer.rds_config import *
-from linkServer.link_to_mysql import *
+from scrapData.rds_config import *
+from scrapData.link_to_mysql import *
 import pymysql
 import json
 
